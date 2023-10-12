@@ -17,6 +17,6 @@ def street_view(area, latitude, longitude):
             'area': area,
             'image': url
         }
-        return jsonify(response_data)
+        return response_data
     else:
         return jsonify({'error': 'Failed to fetch the image'})

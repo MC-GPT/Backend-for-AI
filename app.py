@@ -1,15 +1,23 @@
 from flask import Flask
 from streetview import street_view
 from gpt import gpt
-import json
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/guess-location', methods=['GET'])
 def guess_location():
-    question = "한국에서 유명한 관광지와 그곳의 위도, 경도 하나만 말해줘. 전에 말했던거 제외하고. {'area', 'latitude', 'longitude'}를 key 로 하는 json 형식으로 답해줘. 관광지명은 한국어로."
-    json_object = json.loads(gpt(question))
-    return street_view(json_object['area'], json_object['latitude'], json_object['longitude'])
+    question = "세계 유명 관광지와 그곳의 위도,경도 말해줘. 10개 말해줘."
+    response = []
+    for r in gpt(question):
+        response.append(street_view(r['area'], r['latitude'], r['longitude']))
+    return response
+
+# 얼굴합성
+@app.route('/face_merge', methods=['GET'])
+def face_merge():
+    return 0
+
+# 모여라게임
 
 
 if __name__ == '__main__':
