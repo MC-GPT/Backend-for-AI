@@ -2,11 +2,11 @@ from flask import jsonify
 import base64
 import requests
 
-def street_view(area, latitude, longitude):
+def street_view(area, latitude, longitude, heading):
     api_key = "AIzaSyBfIFxNGNnYqmSKRz3x-stcQoZiAyjq6T0"
     location = str(latitude) + ',' + str(longitude)
-    size = "600x400"
-    url = f"https://maps.googleapis.com/maps/api/streetview?size={size}&location={location}&key={api_key}"
+    size = "1080x560"
+    url = f"https://maps.googleapis.com/maps/api/streetview?size={size}&location={location}&heading={heading}&fov=120&pitch=30&key={api_key}"
 
     response = requests.get(url)
 
