@@ -15,8 +15,15 @@ def guess_location():
 
 # 얼굴 디즈니화
 @app.route('/game/disney-face', methods=['GET'])
-def face_merge():
-    return 0
+def disney_face():
+    response = []
+    url = "https://mc-nugu.s3.ap-northeast-2.amazonaws.com/"
+    my_list = ["카리나", "윈터"]
+
+    for i, item in enumerate(my_list):
+        response.append({"url": url + str(i) + ".png", "answer": item})
+
+    return response
 
 # 모여라게임
 @app.route('/game/gather-up', methods=['GET'])
