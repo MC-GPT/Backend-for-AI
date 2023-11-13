@@ -9,7 +9,7 @@ app = Flask(__name__)
 def app_gpt():
     request_data = request.get_json()
     mood_data = request_data.get('mood', '')
-    question = "Generate one RGB value suitable for a home party with about 20 people. output should be json with 'color_code' and color_code like #0000. I prefer" + mood_data + "mood."
+    question = "Generate one RGB value suitable for a party with about 20 people. avoid colors that are too close to primary colors or purple. output should be json with 'color_code' and color_code like #0000. I prefer" + mood_data + "mood."
     a = {"role": "system", "content": "'color_code' 를 key 로 하는 json 형식으로 답해줘."}
     b = {"role": "user", "content": question}
     c = {"role": "assistant", "content": '{"color": "#9B59B6"}'}

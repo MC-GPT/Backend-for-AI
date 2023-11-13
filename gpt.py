@@ -2,7 +2,7 @@ import openai
 import json
 
 def gpt(a, b, c):
-    openai.api_key = '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'
+    openai.api_key = ''
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[a, b, c,],
