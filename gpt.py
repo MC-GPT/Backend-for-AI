@@ -2,7 +2,7 @@ import openai
 import json
 
 def gpt(question):
-    openai.api_key = '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'
+    openai.api_key = ''
 
     response = openai.ChatCompletion.create(
         model="gpt-4",

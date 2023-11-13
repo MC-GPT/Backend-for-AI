@@ -18,10 +18,10 @@ def guess_location():
 def disney_face():
     response = []
     url = "https://mc-nugu.s3.ap-northeast-2.amazonaws.com/"
-    my_list = ["카리나", "윈터"]
+    name_list = ["수지", "아이유", "윈터", "장원영", "제니", "해린", "윈터", "카리나"]
 
-    for i, item in enumerate(my_list):
-        response.append({"url": url + str(i) + ".png", "answer": item})
+    for i, item in enumerate(name_list):
+        response.append({"quiz": url + "quiz/" + str(i) + ".png", "answer": url + "answer/" + str(i) + ".jpg", "name": name_list[i]})
 
     return response
 
