@@ -1,16 +1,11 @@
 import openai
 import json
 
-def gpt(question):
-    openai.api_key = ''
-
+def gpt(a, b, c):
+    openai.api_key = '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'
     response = openai.ChatCompletion.create(
         model="gpt-4",
-        messages=[
-            {"role": "system", "content": "'area', 'latitude', 'longitude', 'heading' 를 key 로 하는 json 형식으로 답해줘. 관광지명은 한국어로."},
-            {"role": "user", "content": question},
-            {"role": "assistant", "content": '{"area": "경복궁", "latitude": 37.579617, "longitude": 126.977041, "heading":90}'},
-        ],
+        messages=[a, b, c,],
         temperature=1,
     )
 
